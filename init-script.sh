@@ -1,11 +1,12 @@
 #!/bin/bash
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
 
-sudo yum update -y
-sudo yum install httpd -y
-sudo systemctl enable httpd
-sudo systemctl start httpd
-echo "${file_content}!" > /var/www/html/index.html
+set -e
 
-sudo systemctl restart httpd
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo systemctl enable nginx
+
+echo "${file_content}!" > /var/www/html/index.nginx-debian.html
+
+systemctl restart nginx
+
