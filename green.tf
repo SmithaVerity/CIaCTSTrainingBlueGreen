@@ -10,7 +10,7 @@ resource "aws_instance" "green" {
   })
 
   tags = {
-    Name = "green-${count.index}"
+    Name = "green version 1.1 - ${count.index}"
   }
 }
 
